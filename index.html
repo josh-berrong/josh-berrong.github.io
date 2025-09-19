@@ -27,7 +27,8 @@
 	function launchChat() {
            embeddedservice_bootstrap.utilAPI.launchChat()
                .then(() => {
-            	disableLaunchChatButton();    
+            	console.log(
+                       'Successfully launched Messaging'    
                    );
                }).catch(() => {
                    console.log(
@@ -43,4 +44,5 @@
 </body>
 
 </html>
+
 
