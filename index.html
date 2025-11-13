@@ -18,10 +18,37 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
+	
+window.addEventListener("onEmbeddedMessagingReady", () => {
+        console.log("Enhanced Chat is ready!");
+
+        // Fetch browser details
+        const fetchBrowserName = () => {
+            const userAgent = navigator.userAgent;
+            if (userAgent.includes("Opera") || userAgent.includes("Opr")) return "Opera";
+            if (userAgent.includes("Edg")) return "Edge";
+            if (userAgent.includes("Chrome")) return "Chrome";
+            if (userAgent.includes("Safari")) return "Safari";
+            if (userAgent.includes("Firefox")) return "Firefox";
+            return "Unknown";
+        };
+
+        const browserName = fetchBrowserName();
+        const browserLanguage = navigator.language;
+        const browserPlatform = navigator.platform;
+
+        // Pass data to Salesforce
+        embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+            "BrowserName": browserName,
+            "BrowserLanguage": browserLanguage,
+            "BrowserPlatform": browserPlatform
+        });
+    });
 </script>
 <script type='text/javascript' src='https://marinecreditunion--stage.sandbox.my.site.com/ESWMessagingWeb1758567833973/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
+
 
 
 
