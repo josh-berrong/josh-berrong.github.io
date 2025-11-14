@@ -9,9 +9,9 @@ function initEmbeddedMessaging() {
     try {
         embeddedservice_bootstrap.settings.language = 'en_US';
         embeddedservice_bootstrap.init(
-            'https://marinecreditunion--stage.sandbox.my.salesforce.com', // baseCoreURL
             '00DO800000Gjfc5', // Org ID
             'Messaging_Web', // Deployment Name
+            'https://marinecreditunion--stage.sandbox.my.site.com/ESWMessagingWeb1758567833973',
             {
                 scrt2URL: 'https://marinecreditunion--stage.sandbox.my.salesforce-scrt.com'
             }
@@ -24,8 +24,7 @@ function initEmbeddedMessaging() {
 
 <!-- ✅ Load Salesforce SDK correctly -->
 <script type="text/javascript" 
-        src="https://marinecreditunion--stage.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js" 
-        onload="initEmbeddedMessaging()">
+        src='https://marinecreditunion--stage.sandbox.my.site.com/ESWMessagingWeb1758567833973/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'>
 </script>
 
 <script>
@@ -79,3 +78,4 @@ window.addEventListener("onEmbeddedMessagingReady", async () => {
 </script>
 </body>
 </html>
+
